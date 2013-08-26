@@ -1,0 +1,4 @@
+jsmd
+====
+
+JavaScript must die!
