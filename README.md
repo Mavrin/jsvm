@@ -1,4 +1,4 @@
 jsmd
 ====
-http://mavrin.github.io/jsmd/
+http://mavrin.github.io/jsvm/
 JavaScript must die!
