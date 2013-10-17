@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=680, user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+    <style type="text/css">
+        p.annotation {
+            margin-bottom:0;
+        }
+    </style>
 </head>
 <body class="list">
 <header class="caption">
@@ -27,6 +32,11 @@
 <section class="slide shout" >
     <div>
         <p> Виртуальная машина программная и/или аппаратная система, эмулирующая аппаратное обеспечение некоторой платформы (target — целевая, или гостевая платформа) и исполняющая программы для target-платформы на host-платформе (host — хост-платформа, платформа-хозяин)</p>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/jvm.png" alt=""/>
     </div>
 </section>
 <section class="slide shout">
@@ -120,8 +130,8 @@
             <li class="next">Compiler optimization</li>
             <li class="next">JIT</li>
             <li class="next">Type inference</li>
-            <li class="next">Hidden Type</li>
-            <li class="next">Method inline, PICs</li>
+            <li class="next">Hidden classes</li>
+            <li class="next">Inline cache</li>
         </ul>
     </div>
 </section>
@@ -142,6 +152,11 @@
 </section>
 <section class="slide shout">
     <div>
+        <h2 >a + b</h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
         <h2 >Ожидаю шуточек</h2>
     </div>
 </section>
@@ -150,260 +165,139 @@
         <img style="height: 100%;width: 100%;" src="img/ache.png" alt=""/>
     </div>
 </section>
-<section class="slide cover">
+<section class="slide shout">
     <div>
-        <img style="height: 100%;width: 100%;" src="img/starp.jpg" alt=""/>
-        <h2 style="color:#fff;font-size: 90px">Да, я пишу не первый год на этом языке. Я чувствую его боль каждой клеткой своего мозга.</h2>
+        <h2>Hidden classes</h2>
     </div>
 </section>
-<section class="slide cover">
+<section class="slide">
+    <div><pre>
+        <code> function Point(x, y) {</code>
+        <code>    this.x = x;</code>
+        <code>    this.y = y;</code>
+        <code>}</code>
+        </pre>
+    </div>
+</section>
+<section class="slide">
+    <div><pre>
+        <code> function Point(x, y) {</code>
+        <code>    this.x = x;</code>
+        <code>    this.y = y;</code>
+        <code>}</code>
+        </pre>
+        <img src="img/map_trans_a.png" alt=""/>
+    </div>
+</section>
+<section class="slide">
+    <div><pre>
+        <code> function Point(x, y) {</code>
+        <code>    this.x = x;</code>
+        <code>    this.y = y;</code>
+        <code>}</code>
+        </pre>
+        <img src="img/map_trans_b.png" alt=""/>
+    </div>
+</section>
+<section class="slide">
+    <div><pre>
+        <code> function Point(x, y) {</code>
+        <code>    this.x = x;</code>
+        <code>    this.y = y;</code>
+        <code>}</code>
+        </pre>
+        <img src="img/map_trans_c.png" alt=""/>
+    </div>
+</section>
+<section class="slide shout">
     <div>
-        <img style="height: 100%;width: 100%;" src="img/cel-cennyh-bumag.jpg" alt=""/>
-        <h2 style="color:#fff;font-size: 90px">Он действительно неплохо заточен для Web.</h2>
-    </div>
-</section>
-<section class="slide cover">
-    <div>
-        <img style="height: 100%;width: 100%;" src="img/func.png" alt=""/>
-        <h2 style="color:#000;font-size: 110px">Он функционален.</h2>
-    </div>
-</section>
-<section class="slide cover">
-    <div>
-        <img style="height: 100%;width: 100%;" src="img/Freedom.jpg" alt=""/>
-        <h2 style="color:#000;font-size: 110px">Он не ставит Вас в рамки.</h2>
-    </div>
-</section>
-<section class="slide cover">
-    <div>
-        <img style="height: 100%;width: 100%;" src="img/cross.jpg" alt=""/>
-        <h2 style="color:#FFF;font-size: 110px">Он кроссплатформенный. Он очень кроссплатформенный.</h2>
-    </div>
-</section>
-<section class="slide cover">
-    <div>        
-        <img  style="height: 100%;width: 100%;" src="img/comics_Fraj_orig_1341226183.jpg">       
-    </div>
-</section>
-<section class="slide cover">
-    <div>        
-        <img style=" height: 100%; width: 100%;" src="img/tlen.png">       
+        <h2>Inline cache</h2>
     </div>
 </section>
 <section class="slide">
     <div>
-        <h2><a href="http://kangax.github.io/es5-compat-table/es6/" target="_blank">Очень медленное развитие языка</a></h2>
-
-        <iframe style="width:100%;height:75%" src="http://kangax.github.io/es5-compat-table/es6/"></iframe>
-        </ol>
+        For example, the JavaScript code to access property x from a Point object is:
+       <pre><code>point.x</code></pre>
+        In V8, the machine code generated for accessing x is:
+        <pre>
+        <code># ebx = the point object</code>
+        <code>cmp [ebx, &lt;hidden class offset&gt;],&lt;cached hidden class&gt;</code>
+        <code>jne &lt;inline cache miss&gt;</code>
+        <code>mov eax,[ebx, &lt;cached x offset&gt;]</code>
+         </pre>
     </div>
 </section>
+<section class="slide shout">
+    <div>
+        <h2>Результаты</h2>
+    </div>
+</section>
+<section class="slide ">
+    <div>
 
+    <a href="https://livoris.de/sites/default/files/images/dromaeo-result.png" title="Dromaeo Score (The higher the better)" class="colorbox init-colorbox-processed cboxElement" rel="gallery-node-65"><img src="img/dromaeo-result1.png" width="431" height="118" alt="" title="Dromaeo Score (The higher the better)"></a>
+    <p class="annotation">Dromaeo Score (The higher the better)</p>
+
+    <a href="https://livoris.de/sites/default/files/images/sunspider-result.png" title="SunSpider Runtime (The lower the better)" class="colorbox init-colorbox-processed cboxElement" rel="gallery-node-65"><img src="img/sunspider-result2.png" width="433" height="122" alt="" title="SunSpider Runtime (The lower the better)"></a>
+        <p class="annotation">SunSpider Runtime (The lower the better)</p>
+    <a href="https://livoris.de/sites/default/files/images/v8bench-result.png" title="V8 Benchmark Suite Score (The higher the better)" class="colorbox init-colorbox-processed cboxElement" rel="gallery-node-65"><img src="img/v8bench-result3.png" width="433" height="123" alt="" title="V8 Benchmark Suite Score (The higher the better)"></a>
+        <p class="annotation">V8 Benchmark Suite Score (The higher the better)</p>
+
+
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>V8</h2>
+        <ul>
+            <li class="next">Lars Bak</li>
+            <li class="next">Hidden Class,Inline cache</li>
+            <li class="next">Precise generation GC</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Lars Bak</h2>
+        <ul>
+            <li class="next">implement VM since 1988</li>
+            <li class="next">Beta</li>
+            <li class="next">Self</li>
+            <li class="next">HotSpot</li>
+        </ul>
+        <img src="img/lars1_01.jpg" alt="" style="
+    position: absolute;
+    display: block;
+    top: 100px;
+    right: 308px;
+">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Еще движки</h2>
+        <ul>
+            <li class="next">JavaScriptCore (Nitro)</li>
+            <li class="next">SipderMonkey</li>
+            <li class="next">Chakra</li>
+            <li class="next">Carakan</li>
+            <li class="next">Rhino and JVM</li>
+        </ul>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2>Rhino is SLOW, why?</h2>
+    </div>
+</section>
 <section class="slide cover">
     <div>
-        <img  style="height: 100%;width: 100%;" src="img/wont.jpg">
-        <h2 style="font-size:100px;color:#fff">Чего хотят программисты от языка.</h2>
+        <img style="position: static;vertical-align: middle;display: inline-block;text-align: center;height: 100%;" src="img/dog.png" alt="">
     </div>
 </section>
 <section class="slide shout">
     <div>
-        <h2 style="font-size:100px;">Static type <b>(-)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Module system <b>(draft)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Pattern macthing <b>(-)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Functions as first-class citizens <b>(+)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Good support for async workflows(like asyc-await, future, promise) <b>(only library)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Macros <b>(-)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Laziness <b>(draft)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Mixin and traits <b>(draft)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Tail recursion <b>(-)</b></h2>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 style="font-size:100px;">Syntax sugar  <b>(draft)</b></h2>
-    </div>
-</section>
-<section class="slide cover my-cover" >
-    <div>
-        <h2>Языки близкие к идеалу</h2>
-        <p>Scala, Clojure</p>
-        <img src="img/krilya.jpg">
-        <!--
-            To apply styles to the certain slides
-            set slide ID to get needed elements
-            -->
-        <style>
-            .my-cover img{
-                width: 100%;
-                height: 100%;
-            }
-            .my-cover h2 {
-                margin:40px 0 0;
-                color:#FFF;
-                text-align:center;
-                font-size:60px;
-                }
-            .my-cover p {
-                margin:10px 0 0;
-                text-align:center;
-                color:#FFF;
-                font-style:italic;
-                font-size:40px;
-                }               
-        </style>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2 ><a style="font-size:100px; text-decoration: none;" href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">Существующие замены JavaScript.</a></h2>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>       
-        <img src="img/dart-logo.png">
-        <h2 style="padding-top: 60px;margin: 0 0 14px;">Плюсы.</h2>
-        <ol>
-            <li >Опциональная типизация</li>
-            <li >Мощная стандартная библиотека</li>
-            <li class="next">Работа с асинхронным кодом из коробки</li>
-            <li class="next">Собственная VM</li>
-            <li class="next">Web UI</li>
-            <li class="next">Мощная экосистема.</li>
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>       
-        <img src="img/dart-logo.png">
-        <h2 style="padding-top: 60px;margin: 0 0 14px;">Минусы.</h2>
-        <ol>
-            <li >Google любит закрывать продукты</li>
-            <li class="next">Требует транслятора в JavaScript</li>
-            <li class="next">Future не полностью решают проблему асинхронности</li>
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/cofee-logo.png" >
-        <h2>Плюсы</h2>
-        <ol>
-            <li >"It's just JavaScript"</li>
-            <li class="next">Syntax sugar</li>
-            <li class="next">Best practices JavaScript</li>           
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/cofee-logo.png" >
-        <h2>Минусы</h2>
-        <ol>
-            <li >Нет работы с асинхронностью из коробки (есть форки)</li>
-            <li class="next">Не реализована модульность (есть форки)</li>
-            <li class="next">Нет своей виртуальной машины</li>           
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/type-logo.png" >
-        <h2>Плюсы</h2>
-        <ol>
-            <li >Статическая типизация (DefinitelyTyped)</li>
-            <li class="next">Совместим с Javascript</li>
-            <li class="next">Мощная система модулей</li>           
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/type-logo.png" >
-        <h2>Минусы</h2>
-        <ol>
-            <li >Нет работы с асинхронностью из коробки (draft)</li>
-            <li class="next">Нет своей виртуальной машины</li>           
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/clojure-icon.gif" >
-        <h2>Плюсы</h2>
-        <ol>
-            <li >Это лисп.</li>            
-            <li class="next">Мощная система макросов.</li>
-            <li class="next">Совместим с Javascript</li>
-            <li class="next">Большое количество готовых решений.</li>             
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/clojure-icon.gif" >
-        <h2>Минусы</h2>
-        <ol>
-            <li >Это лисп.</li>
-            <li class="next">Большой размер библиотеки.</li>
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/scala-logo.png" style="background: #000;" >
-        <h2>Плюсы</h2>
-        <ol>
-            <li >Поддержка возможностей Scala</li>            
-            <li class="next">Совместим с Javascript</li>
-            <li class="next">Поддержка описание типов из TypeScript</li>
-        </ol>
-    </div>
-</section>
-<section class="slide cover" style="background:#fff;">
-    <div>
-        <img src="img/scala-logo.png" style="background: #000;" >
-        <h2>Минусы</h2>
-        <ol>
-            <li >Молодой проект</li>
-            <li class="next">Большой размер библиотеки</li>
-        </ol>
-    </div>
-</section>
-<section class="slide shout">
-    <div>
-        <h2>Дорогу ASM.js</h2>        
+        <h2>Solution: invokedynamic</h2>
     </div>
 </section>
 <section class="slide shout">
