@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript must die!</title>
+    <title>JavaScript virtual machines</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=680, user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,46 +9,175 @@
 </head>
 <body class="list">
 <header class="caption">
-    <h1>JavaScript must die!</h1>
+    <h1>JavaScript virtual machines</h1>
 
     <p><a href="https://twitter.com/krivlenia">Константин Кривленя</a></p>
     <p>Компания <a href="http://www.targetprocess.com/3/">Taucraft</a></p>
 </header>
 <section class="slide shout">
     <div>
-        <h2 style="font-size:100px;">JavaScript must die!</h2>
+        <h2 style="font-size:100px;">JavaScript virtual machines</h2>
     </div>
 </section>
-<section class="slide cover ">
+<section class="slide shout">
     <div>
-        <img src="img/1371180348_baby-crying.jpg">
-        <h2 style="font-size:100px;color:#fff">Finish!</h2>
+        <h2 >Что такое виртуальная машина?</h2>
+    </div>
+</section>
+<section class="slide shout" >
+    <div>
+        <p> Виртуальная машина программная и/или аппаратная система, эмулирующая аппаратное обеспечение некоторой платформы (target — целевая, или гостевая платформа) и исполняющая программы для target-платформы на host-платформе (host — хост-платформа, платформа-хозяин)</p>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 >Немного истории</h2>
     </div>
 </section>
 <section class="slide">
     <div>
-        <h2>Чего не будет в этой истории?</h2>
-        <ol>
-            <li class="next">Историй из разряда wat.</li>
-            <li class="next">Дайте мне нормальное наследование.</li>
-            <li class="next">О костылях в разных браузерах.</li>
-            <li class="next">О производительности(если только чуть-чуть)</li>
-            <li class="next">И вообще непонятный ваш JavaScript</li>
-        </ol>
+        <ul>
+            <li >pascal 1970</li>
+            <li class="next" >smalltalk 1980</li>
+            <li class="next">self 1986</li>
+            <li class="next">python 1991</li>
+            <li class="next">java 1995</li>
+            <li class="next">javascript 1995</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Как работает виртуальная машина?</h2>
+        <ul>
+            <li class="next">Parser</li>
+            <li class="next" >Intermediate Representation (IR)</li>
+            <li class="next">Interpreter</li>
+            <li class="next">Garbage Collection</li>
+            <li class="next">Optimization</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2 ><a href="http://esprima.org/demo/parse.html">Parser</a></h2>
+        <ul>
+            <li class="next">Tokenize</li>
+            <li class="next">AST</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2 >Intermediate Representation</h2>
+        <ul>
+            <li class="next">Bytecode</li>
+            <li class="next">Stack vs. register</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Stack vs. register</h2>
+        <ul>
+            <li class="next">Stack: (JVM, .NET, php, python, Old JavaScript engine)</li>
+            <li class="next">Register: (Lua, Dalvik, All modern JavaScript engine)</li>
+        </ul>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/stvsregister.png" alt=""/>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Garbage Collection</h2>
+        <ul>
+            <li class="next">Reference counting (php, python ...), smart pointer</li>
+            <li class="next">Tracing
+                <ul>
+                    <li>Stop the world</li>
+                    <li>Copying, Mark-and-sweep, Mark-and-compact</li>
+                    <li>Generational GC</li>
+                    <li>Precise vs. conservative</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/wallpapers_1235.jpg" alt=""/>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Optimization Magic</h2>
+        <ul>
+            <li class="next">Interpreter optimization</li>
+            <li class="next">Compiler optimization</li>
+            <li class="next">JIT</li>
+            <li class="next">Type inference</li>
+            <li class="next">Hidden Type</li>
+            <li class="next">Method inline, PICs</li>
+        </ul>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>JIT</h2>
+        <ul>
+            <li class="next">компиляции байт-кода</li>
+            <li class="next">динамической компиляции</li>
+        </ul>
 
     </div>
 </section>
+<section class="slide shout">
+    <div>
+        <h2 >Type inference</h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 >Ожидаю шуточек</h2>
+    </div>
+</section>
 <section class="slide">
     <div>
-        <h2>Давайте поговорим о хорошем</h2>
-        <ol>
-            <li class="next">Я могу легко выражатся на этом языке.</li>
-            <li class="next">Да, я пишу не первый год на этом языке. Я чувствую его каждой клеткой своего мозга.</li>
-            <li class="next">Он действительно не плохо заточен для Web.</li>
-            <li class="next">Он функционален.</li>
-            <li class="next">Он не ставит Вас в рамки.</li>            
-            <li class="next">Он кроссплотформенен.Он чертовски кросплотфоремен.</li>
-        </ol>
+        <img style="height: 100%;width: 100%;" src="img/ache.png" alt=""/>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/starp.jpg" alt=""/>
+        <h2 style="color:#fff;font-size: 90px">Да, я пишу не первый год на этом языке. Я чувствую его боль каждой клеткой своего мозга.</h2>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/cel-cennyh-bumag.jpg" alt=""/>
+        <h2 style="color:#fff;font-size: 90px">Он действительно неплохо заточен для Web.</h2>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/func.png" alt=""/>
+        <h2 style="color:#000;font-size: 110px">Он функционален.</h2>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/Freedom.jpg" alt=""/>
+        <h2 style="color:#000;font-size: 110px">Он не ставит Вас в рамки.</h2>
+    </div>
+</section>
+<section class="slide cover">
+    <div>
+        <img style="height: 100%;width: 100%;" src="img/cross.jpg" alt=""/>
+        <h2 style="color:#FFF;font-size: 110px">Он кроссплатформенный. Он очень кроссплатформенный.</h2>
     </div>
 </section>
 <section class="slide cover">
@@ -76,27 +205,54 @@
         <h2 style="font-size:100px;color:#fff">Чего хотят программисты от языка.</h2>
     </div>
 </section>
-<section class="slide">
-    <div>       
-        <h2>Хотелки</h2>
-        <style type="text/css">
-        .small-list{
-            font-size: 0.65em
-        }
-        </style>
-        <ol class="small-list">
-            <li >Static type <b>(-)</b></li>
-            <li class="next">Optional dynamic type <b>(only dynamic)</b></li>
-            <li class="next">Module system <b>(draft)</b></li>
-            <li class="next">Pattern macthing <b>(-)</b></li>
-            <li class="next">Functions as first-class citizens <b>(+)</b></li>
-            <li class="next">Good support for async workflows(like asyc-await, future, promise)<b>(only library)</b></li>
-            <li class="next">Macros.<b>(-)</b></li>
-            <li class="next">Laziness.<b>(draft)</b></li>
-            <li class="next">Mixin and traits.<b>(draft)</b></li>
-            <li class="next">Tail recursion.<b>(-)</b></li>
-            <li class="next">Syntax sugar (draft)</li>
-        </ol>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Static type <b>(-)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Module system <b>(draft)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Pattern macthing <b>(-)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Functions as first-class citizens <b>(+)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Good support for async workflows(like asyc-await, future, promise) <b>(only library)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Macros <b>(-)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Laziness <b>(draft)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Mixin and traits <b>(draft)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Tail recursion <b>(-)</b></h2>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2 style="font-size:100px;">Syntax sugar  <b>(draft)</b></h2>
     </div>
 </section>
 <section class="slide cover my-cover" >
@@ -129,17 +285,9 @@
         </style>
     </div>
 </section>
-<section class="slide">
+<section class="slide shout">
     <div>
-        <h2><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">Существующие замены JavaScript.</a></h2>
-        <ol>
-            <li>Dart</li>
-            <li class="next">CoffeeScript</li>
-            <li class="next">TypeScript</li>
-            <li class="next">ClojureScript</li>           
-            <li class="next">Scala</li> 
-             <li class="next"><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">Другие ...</a></li>          
-        </ol>       
+        <h2 ><a style="font-size:100px; text-decoration: none;" href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">Существующие замены JavaScript.</a></h2>
     </div>
 </section>
 <section class="slide cover" style="background:#fff;">
@@ -147,7 +295,7 @@
         <img src="img/dart-logo.png">
         <h2 style="padding-top: 60px;margin: 0 0 14px;">Плюсы.</h2>
         <ol>
-            <li >Оциональная тизация</li>
+            <li >Опциональная типизация</li>
             <li >Мощная стандартная библиотека</li>
             <li class="next">Работа с асинхронным кодом из коробки</li>
             <li class="next">Собственная VM</li>
@@ -161,9 +309,9 @@
         <img src="img/dart-logo.png">
         <h2 style="padding-top: 60px;margin: 0 0 14px;">Минусы.</h2>
         <ol>
-            <li >Google любит закрывать продукты.</li>
+            <li >Google любит закрывать продукты</li>
             <li class="next">Требует транслятора в JavaScript</li>
-            <li class="next">Future не полностью решают проблему асинхроности</li>            
+            <li class="next">Future не полностью решают проблему асинхронности</li>
         </ol>
     </div>
 </section>
@@ -183,7 +331,7 @@
         <img src="img/cofee-logo.png" >
         <h2>Минусы</h2>
         <ol>
-            <li >Нет работы с асинхроностью из коробки (есть форки)</li>
+            <li >Нет работы с асинхронностью из коробки (есть форки)</li>
             <li class="next">Не реализована модульность (есть форки)</li>
             <li class="next">Нет своей виртуальной машины</li>           
         </ol>
@@ -205,7 +353,7 @@
         <img src="img/type-logo.png" >
         <h2>Минусы</h2>
         <ol>
-            <li >Нет работы с асинхроностью из коробки (draft)</li>            
+            <li >Нет работы с асинхронностью из коробки (draft)</li>
             <li class="next">Нет своей виртуальной машины</li>           
         </ol>
     </div>
@@ -234,23 +382,22 @@
 </section>
 <section class="slide cover" style="background:#fff;">
     <div>
-        <img src="img/scala-logo.png" >
+        <img src="img/scala-logo.png" style="background: #000;" >
         <h2>Плюсы</h2>
         <ol>
             <li >Поддержка возможностей Scala</li>            
             <li class="next">Совместим с Javascript</li>
             <li class="next">Поддержка описание типов из TypeScript</li>
-            <li class="next">Let JavaScript call you.</li>             
         </ol>
     </div>
 </section>
 <section class="slide cover" style="background:#fff;">
     <div>
-        <img src="img/clojure-icon.gif" >
+        <img src="img/scala-logo.png" style="background: #000;" >
         <h2>Минусы</h2>
         <ol>
-            <li >Молодой проект.</li>
-            <li class="next">Большой размер библиотеки.</li>
+            <li >Молодой проект</li>
+            <li class="next">Большой размер библиотеки</li>
         </ol>
     </div>
 </section>
@@ -267,9 +414,9 @@
 <section class="slide">
     <div>
         <h2>Контакты</h2>
-        <a style="background:url(img/twitter-bird-light-bgs.png) no-repeat;padding-left:40px;" href="https://twitter.com/Krivlenia">Twitter</a><br>
-        <a style="background:url(img/GitHub-Mark-32px.png) no-repeat;padding-left:40px;" href="https://github.com/Mavrin">Github</a><br>    
-        <a style="background:url(img/habrahabr.png) center left no-repeat;padding-left:20px;" href="http://habrahabr.ru/users/mavrin/">Хабр</a><br>       
+        <a style="background:url(img/twitter-bird-light-bgs.png) no-repeat;padding-left:40px;" href="https://twitter.com/Krivlenia">Twitter (https://twitter.com/Krivlenia/)</a><br>
+        <a style="background:url(img/GitHub-Mark-32px.png) no-repeat;padding-left:40px;" href="https://github.com/Mavrin">Github (https://github.com/Mavrin/)</a><br>
+        <a style="background:url(img/habrahabr.png) center left no-repeat;padding-left:20px;" href="http://habrahabr.ru/users/mavrin/">Хабр (http://habrahabr.ru/users/mavrin/)</a><br>
     </div>
 </section>
 
